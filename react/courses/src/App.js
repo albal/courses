@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const flask_url = process.env.REACT_APP_FLASK_URL;
+// const flask_url = process.env.REACT_APP_FLASK_URL;
+const flask_url = "http://" + window.location.host.split(":")[0] + ":5000";
 
 function App() {
     const [courses, setCourses] = useState([]);
@@ -87,7 +88,7 @@ const upvoteCourse = (courseId) => {
             </div>
 
             <div>
-                <h2>Available Courses</h2>
+                <h2>Available Courses - {flask_url}</h2>
                 <ul>
                         {courses.map(course => (
             <li key={course.id}>  {/* Use course.id as key */}
